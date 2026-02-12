@@ -1,9 +1,9 @@
-# A-classic-error-in-calculating-the-crown-volume
+
 # ⚠️ A Classic Error in Calculating the Crown Volume
 
 [![Status](https://img.shields.io/badge/status-critical%20review-red)]()
 [![Topic](https://img.shields.io/badge/topic-LiDAR%20%7C%20forestry%20%7C%20biometrics-blue)]()
-[![Year](https://img.shields.io/badge/year-2019%2B-critical)]()
+[![Year](https://img.shields.io/badge/year-2025%2B-critical)]()
 
 &gt; **TL;DR**: A widely-used frustum formula in tree crown volume estimation is mathematically invalid for irregular crown shapes. This repository documents the flaw and proposes the correct alternative.
 
@@ -56,7 +56,7 @@ $$V = h \times \frac{(A_1 + A_2)}{2}$$
 
 ## 📚 Evidence from Literature
 
-An embarrassing number of published papers—far too many to list here—have slipped through peer review using the bogus frustum formula. 
+An embarrassing number of published papers have slipped through peer review using the bogus frustum formula. 
 
 &gt; **Key finding**: Papers relying on this method with zero theoretical grounding are still being published as recently as **2019**.
 
@@ -64,23 +64,3 @@ An embarrassing number of published papers—far too many to list here—have sl
 
 ---
 
-## 🛠️ Recommendations
-
-- [ ] **Audit your methods**: Check if you're using the frustum formula on irregular shapes
-- [ ] **Switch to averaging**: Use $V = h \times (A_1 + A_2) / 2$ for layer-based estimation
-- [ ] **Document assumptions**: Clearly state geometric approximations in your methodology
-- [ ] **Review citations**: Be skeptical of pre-2020 papers using frustum methods without validation
-
----
-
-## 📖 Citation
-
-If you use this critique in your work, please cite:
-
-```bibtex
-@misc{crown_volume_error,
-  title={A Classic Error in Calculating the Crown Volume},
-  author={[Your Name]},
-  year={2024},
-  howpublished={\url{https://github.com/yourusername/A-classic-error-in-calculating-the-crown-volume}}
-}
