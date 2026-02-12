@@ -1,11 +1,7 @@
 
 # ⚠️ A Classic Error in Calculating the Crown Volume
 
-[![Status](https://img.shields.io/badge/status-critical%20review-red)]()
-[![Topic](https://img.shields.io/badge/topic-LiDAR%20%7C%20forestry%20%7C%20biometrics-blue)]()
-[![Year](https://img.shields.io/badge/year-2025%2B-critical)]()
-
-&gt; **TL;DR**: A widely-used frustum formula in tree crown volume estimation is mathematically invalid for irregular crown shapes. This repository documents the flaw and proposes the correct alternative.
+# A widely-used frustum formula in tree crown volume estimation is mathematically invalid for irregular crown shapes. This repository documents the flaw and proposes the correct alternative.
 
 ---
 
