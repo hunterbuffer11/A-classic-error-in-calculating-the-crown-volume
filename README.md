@@ -1,13 +1,86 @@
 # A-classic-error-in-calculating-the-crown-volume
-The Flawed Math Too Many Papers Still Use for Crown Volume Calculations
-It’s honestly shocking how many academic papers rely on fundamentally incorrect math when estimating tree crown volume. Some of these methods manage to produce numbers that look reasonable—but scratch the surface, and the mathematical holes are glaring. And yes, they absolutely need to be called out.
-In LiDAR-based crown volume estimation, the so-called frustum method has become the go to approach. The idea is simple: slice the crown vertically into layers (equally or unevenly spaced point clouds), compute the area of each layer’s upper and lower boundary, estimate the volume of that slice, sum them up, and boom—total canopy volume.
-Sounds fine in theory. The problem? How most researchers calculate the layer volume.
-The vast majority plug the two boundary areas into the classic frustum volume formula:
-V = h/3 × (A₁ + A₂ + √(A₁ × A₂))
-Let’s be blunt: this is mathematically reckless. That formula only holds if the solid is a true frustum—a definition clearly laid out on Wikipedia. But in the real world, crown are messy. The upper boundary might be roughly circular; the lower boundary could be closer to a triangle. There’s no mathematical justification for jamming such irregular shapes into a formula that assumes strict geometric preconditions.
-Some scholars have caught on. They keep the layer by layer concept but switch to a far more defensible approximation: average the two boundary areas and multiply by the layer height.
-V = h × (A₁ + A₂) / 2
-This isn’t perfect, but it’s engineering math—a deliberate, transparent approximation with a solid logical foundation. It works because it doesn’t pretend the canopy obeys rules it clearly doesn’t.
-Here’s the frustrating part: an embarrassing number of published papers—far too many to list here, though I’ve included a few below—have slipped through peer review using that bogus frustum formula. Worse, papers relying on this method with zero theoretical grounding are still being published as recently as 2019. That’s not just lazy; it’s academically indefensible. Methods without mathematical legitimacy don’t suddenly become valid because they’ve been used before. It’s time we stop treating them as if they do.
+# ⚠️ A Classic Error in Calculating the Crown Volume
 
+[![Status](https://img.shields.io/badge/status-critical%20review-red)]()
+[![Topic](https://img.shields.io/badge/topic-LiDAR%20%7C%20forestry%20%7C%20biometrics-blue)]()
+[![Year](https://img.shields.io/badge/year-2019%2B-critical)]()
+
+&gt; **TL;DR**: A widely-used frustum formula in tree crown volume estimation is mathematically invalid for irregular crown shapes. This repository documents the flaw and proposes the correct alternative.
+
+---
+
+## 🎯 The Problem
+
+In LiDAR-based crown volume estimation, the **frustum method** has become the de facto standard:
+
+1. Slice the crown vertically into layers (equally or unevenly spaced)
+2. Compute the area of each layer's upper ($A_1$) and lower ($A_2$) boundary
+3. Estimate the volume of each slice
+4. Sum for total canopy volume
+
+**Sounds reasonable in theory. The issue? How most researchers calculate layer volume.**
+
+---
+
+## ❌ The Flawed Approach
+
+The vast majority plug the two boundary areas into the classic frustum formula:
+
+$$V = \frac{h}{3} \times (A_1 + A_2 + \sqrt{A_1 \times A_2})$$
+
+&gt; **⚠️ Warning**: This is mathematically reckless.
+
+That formula **only holds if the solid is a true frustum**—a definition clearly laid out on [Wikipedia](https://en.wikipedia.org/wiki/Frustum). But real-world crowns are messy:
+- Upper boundary: roughly circular
+- Lower boundary: closer to a triangle
+
+**There is no mathematical justification** for forcing irregular shapes into a formula that assumes strict geometric preconditions.
+
+---
+
+## ✅ The Correct Alternative
+
+Some scholars have caught on. They retain the layer-by-layer concept but switch to a defensible approximation:
+
+$$V = h \times \frac{(A_1 + A_2)}{2}$$
+
+| Aspect | Frustum Formula | Average Area Method |
+|--------|----------------|---------------------|
+| **Assumption** | Strict geometric similarity | None (transparent approximation) |
+| **Mathematical rigor** | ❌ Invalid for irregular shapes | ✅ Engineering approximation |
+| **Transparency** | Pretends precision | Acknowledges uncertainty |
+
+&gt; This isn't perfect, but it's **engineering math**—a deliberate, transparent approximation with solid logical foundation. It works because it doesn't pretend the canopy obeys rules it clearly doesn't.
+
+---
+
+## 📚 Evidence from Literature
+
+An embarrassing number of published papers—far too many to list here—have slipped through peer review using the bogus frustum formula. 
+
+&gt; **Key finding**: Papers relying on this method with zero theoretical grounding are still being published as recently as **2019**.
+
+**This isn't just lazy; it's academically indefensible.** Methods without mathematical legitimacy don't suddenly become valid because they've been used before.
+
+---
+
+## 🛠️ Recommendations
+
+- [ ] **Audit your methods**: Check if you're using the frustum formula on irregular shapes
+- [ ] **Switch to averaging**: Use $V = h \times (A_1 + A_2) / 2$ for layer-based estimation
+- [ ] **Document assumptions**: Clearly state geometric approximations in your methodology
+- [ ] **Review citations**: Be skeptical of pre-2020 papers using frustum methods without validation
+
+---
+
+## 📖 Citation
+
+If you use this critique in your work, please cite:
+
+```bibtex
+@misc{crown_volume_error,
+  title={A Classic Error in Calculating the Crown Volume},
+  author={[Your Name]},
+  year={2024},
+  howpublished={\url{https://github.com/yourusername/A-classic-error-in-calculating-the-crown-volume}}
+}
